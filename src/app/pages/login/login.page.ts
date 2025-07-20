@@ -23,7 +23,6 @@ import {
     IonContent,
     IonItem,
     RouterModule,
-    CommonModule,
     IonLabel,
     IonInput,
     IonButton,
@@ -42,23 +41,21 @@ export class LoginPage {
     private alertCtrl: AlertController
   ) {}
 
-async login() {
-  if (!this.correo || !this.contrasena) {
-    this.mostrarAlerta('Campos requeridos', 'Completa todos los campos.');
-    return;
+  async login() {
+    if (!this.correo || !this.contrasena) {
+      this.mostrarAlerta('Campos requeridos', 'Completa todos los campos.');
+      return;
+    }
+
+    const usuario = await this.dbService.validarCredenciales(this.correo, this.contrasena);
+    if (usuario) {
+      localStorage.setItem('usuario_id', usuario.id);
+      localStorage.setItem('usuario_activo', 'true'); 
+      this.router.navigate(['/home']);
+    } else {
+      this.mostrarAlerta('Error', 'Credenciales inválidas');
+    }
   }
-
-  const usuario = await this.dbService.validarCredenciales(this.correo, this.contrasena);
-  if (usuario) {
-    localStorage.setItem('usuario_id', usuario.id);
-    localStorage.setItem('usuario_activo', 'true');  // ✅ Requerido por el AuthGuard
-    this.router.navigate(['/home']);
-  } else {
-    this.mostrarAlerta('Error', 'Credenciales inválidas');
-  }
-}
-
-
 
   async mostrarAlerta(titulo: string, mensaje: string) {
     const alert = await this.alertCtrl.create({
@@ -67,5 +64,11 @@ async login() {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  // ✅ Evita warning de accesibilidad (aria-hidden)
+  ionViewDidLeave() {
+    const el = document.activeElement as HTMLElement;
+    if (el) el.blur();
   }
 }
