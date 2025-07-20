@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Pelupet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding animacion-home" [fullscreen]="true">
+
+  <!-- Título -->
+  <div class="ion-text-center fade-up delay-0">
+    <h2>📍 Dirección</h2>
+  </div>
+
+  <!-- Formulario -->
+  <div class="fade-up delay-1">
+    <ion-item>
+      <ion-label position="floating">Ingrese su dirección</ion-label>
+      <ion-input [(ngModel)]="direccion" fill="outline"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="success" (click)="guardarDireccion()">
+      Guardar Dirección
+    </ion-button>
+  </div>
+
+  <!-- Dirección y mapa -->
+  <div class="fade-up delay-2" *ngIf="direccionGuardada">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>📦 Dirección guardada</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ direccionGuardada }}
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Mini mapa responsivo -->
+    <div class="map-container">
+      <div id="mapa" class="mapa-leaflet"></div>
+    </div>
+  </div>
+
+  <!-- Volver -->
+  <div class="fade-in-up delay-4">
+    <ion-button expand="block" color="medium" (click)="irHome()" style="margin-top: 20px;">
+      Volver a Inicio
+    </ion-button>
+  </div>
+
+</ion-content>

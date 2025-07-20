@@ -1,0 +1,50 @@
+.animacion-login {
+  animation: fadeInPage 0.8s ease-in-out both;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.delay-0 {
+  animation-delay: 0.2s;
+}
+.delay-1 {
+  animation-delay: 0.4s;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.titulo {
+  font-size: 2em;
+  margin: 0;
+}
+
+.subtitulo {
+  font-size: 1em;
+  color: gray;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

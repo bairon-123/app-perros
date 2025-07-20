@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Pelupet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding animacion-home ion-text-center">
+
+  <!-- Título con animación -->
+  <div class="fade-up delay-0">
+    <h2>🐶 Perrito Aleatorio</h2>
+  </div>
+
+  <!-- Botón para ver perrito -->
+  <div class="fade-up delay-1">
+    <ion-button expand="block" color="success" (click)="verPerrito()">
+      Ver Perrito
+    </ion-button>
+  </div>
+
+  <!-- Imagen del perrito -->
+  <div class="fade-up delay-2" *ngIf="imagenUrl">
+    <img
+      [src]="imagenUrl"
+      alt="Perrito"
+      style="margin-top: 20px; max-width: 300px; border-radius: 10px;"
+    />
+  </div>
+
+  <!-- Botón volver -->
+  <div class="fade-in-up delay-3">
+    <ion-button expand="block" color="medium" (click)="irHome()" style="margin-top: 30px;">
+      Volver a Inicio
+    </ion-button>
+  </div>
+
+</ion-content>

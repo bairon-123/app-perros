@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Pelupet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding animacion-perfil">
+
+  <!-- Título -->
+  <div class="ion-text-center fade-up delay-0">
+    <h2>🐾 Mi Perfil</h2>
+  </div>
+
+  <!-- Datos del usuario -->
+  <ion-card class="fade-up delay-1">
+    <ion-card-header>
+      <ion-card-title>👤 Datos del Usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Nombre:</strong> {{ nombre }}</p>
+      <p><strong>Correo:</strong> {{ correo }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Dirección -->
+  <ion-card *ngIf="direccion" class="fade-up delay-2">
+    <ion-card-header>
+      <ion-card-title>📍 Dirección Guardada</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ direccion }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Reservas -->
+  <ion-card *ngIf="reservas.length > 0" class="fade-up delay-3">
+    <ion-card-header>
+      <ion-card-title>📅 Reservas Realizadas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let reserva of reservas">
+          <ion-label>
+            <h3>🐶 {{ reserva.nombre_perro }}</h3>
+            <p><strong>Raza:</strong> {{ reserva.raza }}</p>
+            <p><strong>Tamaño:</strong> {{ reserva.tamano }}</p>
+            <p><strong>Peso:</strong> {{ reserva.peso }} kg</p>
+            <p><strong>Servicio:</strong> {{ reserva.tipo_servicio }}</p>
+            <p><strong>Fecha:</strong> {{ reserva.fecha }}</p>
+            <p><strong>Hora:</strong> {{ reserva.hora }}</p>
+            <p *ngIf="reserva.indicaciones"><strong>Indicaciones:</strong> {{ reserva.indicaciones }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sin reservas -->
+  <ion-card *ngIf="reservas.length === 0" class="fade-up delay-3">
+    <ion-card-content>
+      <p class="ion-text-center">📭 No tienes reservas registradas aún.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón Volver -->
+  <div class="fade-in-up delay-4">
+    <ion-button expand="block" color="medium" (click)="irHome()" style="margin-top: 20px;">
+      Volver a Inicio
+    </ion-button>
+  </div>
+
+</ion-content>

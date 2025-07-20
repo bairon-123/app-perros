@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Pelupet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding animacion-home">
+
+  <div class="ion-text-center fade-up delay-0">
+    <h2 data-cy="titulo-home">¡Bienvenido a Pelupet!</h2>
+    <p>Tu app de peluquería canina a domicilio 🐾</p>
+  </div>
+
+  <div class="botones-home ion-margin-top">
+    <ion-button expand="block" color="success" (click)="irAPerfil()" data-cy="btn-perfil">
+      Ver Perfil
+    </ion-button>
+
+    <ion-button expand="block" color="tertiary" (click)="irAReservas()" data-cy="btn-reservas">
+      Reservar Hora
+    </ion-button>
+
+    <ion-button expand="block" color="warning" (click)="irAServicios()" data-cy="btn-servicios">
+      Ver Servicios
+    </ion-button>
+
+    <ion-button expand="block" color="dark" (click)="irAClima()" data-cy="btn-clima">
+      Ver Clima ☀️
+    </ion-button>
+
+    <ion-button expand="block" color="medium" (click)="irAUbicacion()" data-cy="btn-direccion">
+      Registrar Dirección 🏠
+    </ion-button>
+
+    <ion-button expand="block" color="secondary" (click)="irAPerritos()" data-cy="btn-perritos">
+      Ver Perrito Aleatorio 🐶
+    </ion-button>
+
+    <ion-button expand="block" color="danger" (click)="cerrarSesion()" data-cy="btn-cerrar-sesion">
+      Cerrar Sesión
+    </ion-button>
+  </div>
+
+</ion-content>

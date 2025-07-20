@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Pelupet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <h2>🌤️ Clima en Santiago, Chile</h2>
+  <p>🐾</p>
+
+  <ion-spinner *ngIf="cargando" name="crescent"></ion-spinner>
+
+  <div *ngIf="!cargando && temperatura !== null">
+    <p style="font-size: 1.2em;">Temperatura actual: <strong>{{ temperatura }} °C</strong></p>
+  </div>
+
+  <p *ngIf="error" color="danger">{{ error }}</p>
+
+  <ion-button expand="block" (click)="obtenerClima()">Actualizar</ion-button>
+
+  <div class="fade-in-up delay-8">
+    <ion-button expand="block" color="medium" (click)="irHome()" style="margin-top: 20px;">
+      Volver a Inicio
+    </ion-button>
+  </div>
+</ion-content>

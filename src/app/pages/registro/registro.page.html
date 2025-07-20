@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Pelupet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding animacion-home">
+
+  <!-- Título -->
+  <div class="ion-text-center fade-up delay-0">
+    <h2>📝 Registro</h2>
+  </div>
+
+  <!-- Formulario -->
+  <div class="fade-up delay-1">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input [(ngModel)]="correo" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Botones -->
+<ion-button expand="block" color="primary" (click)="registrar()" data-cy="btn-registro">
+  Registrar
+</ion-button>
+    
+
+    <ion-button expand="block" fill="clear" color="medium" routerLink="/login">
+      Ya tengo cuenta
+    </ion-button>
+
+
+  <div class="fade-in-up delay-3">
+    <ion-button expand="block" color="medium" (click)="irHome()" style="margin-top: 20px;">
+      Volver a Inicio
+    </ion-button>
+  </div>
+
+</ion-content>
